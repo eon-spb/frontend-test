@@ -1,13 +1,15 @@
+import "./MovieCard.css";
+
 export function MovieCard({ movie, getCurrentMovie, setShowDetails }) {
   const { Poster, Title, Year, imdbID } = movie;
 
-  const openopen = () => {
+  const openMovieDetails = () => {
     getCurrentMovie(imdbID);
     setShowDetails(true);
   };
 
   return (
-    <div className="movie__card" onClick={openopen}>
+    <div className="movie__card" onClick={openMovieDetails}>
       <img
         src={
           Poster !== "N/A"

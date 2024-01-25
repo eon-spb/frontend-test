@@ -7,9 +7,14 @@ import logoImg from "./assets/logo.png";
 import searchImg from "./assets/search.png";
 import markImg from "./assets/mark.png";
 import avatarImg from "./assets/avatar.jpg";
+import homeImg from "./assets/home.png";
+import moviesImg from "./assets/movies.png";
+import seriesImg from "./assets/series.png";
+import searchFooterImg from "./assets/search-footer.png";
+import favoritesImg from "./assets/favorites.png";
 import closeImg from "./assets/close.png";
-import { MovieCard } from "./components/MovieCard";
-import { SelectedMovie } from "./components/SelectedMovie";
+import { SelectedMovie } from "./components/SelectedMovie/SelectedMovie";
+import { MovieCard } from "./components/MovieCard/MovieCard";
 
 // ?? get search title
 // ** `http://www.omdbapi.com/?apikey=${API_KEY}=${title}`
@@ -26,13 +31,23 @@ export function App() {
   const [timeoutId, setTimeoutId] = useState();
   const [showDetails, setShowDetails] = useState(false);
   const [SearchBtnStatus, setSearchBtnStatus] = useState(false);
+  const [footerSearch, setFooterSearch] = useState(false);
 
   const searchRef = useRef();
+
+  const showMoviesListbyFooter = () => {
+    setFooterSearch(false);
+  };
 
   const clearSearchInput = () => {
     console.log("@clearSearch");
     setSearch("");
     setSearchBtnStatus(false);
+    searchRef.current.focus();
+  };
+
+  const showSearchByFooter = () => {
+    setFooterSearch(true);
     searchRef.current.focus();
   };
 
@@ -43,6 +58,8 @@ export function App() {
     setMovies(response.data.Search);
     if (title) {
       setSearchBtnStatus(true);
+    } else {
+      setSearchBtnStatus(false);
     }
   };
 
@@ -72,7 +89,7 @@ export function App() {
     <div className="container">
       <header>
         <nav>
-          <div className="logo">
+          <div className={footerSearch ? "logo hide__logo" : "logo"}>
             <img src={menuImg} alt="burger icon" />
             <img src={logoImg} alt="logo movies eoh" />
           </div>
@@ -84,7 +101,7 @@ export function App() {
           </ul>
 
           <div className="search__mark_avatar">
-            <label className="search">
+            <label className={footerSearch ? "search show__search" : "search"}>
               <img src={searchImg} alt="search image" />
               <input
                 className="search__input"
@@ -111,7 +128,7 @@ export function App() {
 
             <button
               className={
-                SearchBtnStatus
+                SearchBtnStatus && footerSearch
                   ? "search__btn show__search__btn"
                   : "search__btn"
               }
@@ -120,7 +137,13 @@ export function App() {
               Очистить
             </button>
 
-            <div className="mark__avatar__imgs">
+            <div
+              className={
+                footerSearch
+                  ? "mark__avatar__imgs hide__imgs"
+                  : "mark__avatar__imgs"
+              }
+            >
               <img className="mark" src={markImg} alt="book mark" />
               <img className="avatar" src={avatarImg} alt="avatar user" />
             </div>
@@ -160,6 +183,46 @@ export function App() {
           )}
         </div>
       </main>
+
+      <footer>
+        <nav>
+          <ul>
+            <li>
+              <button className="footer__btn">
+                <img src={homeImg} alt="" />
+                <p>Главная</p>
+              </button>
+            </li>
+            <li>
+              <button
+                className="footer__btn active"
+                onClick={showMoviesListbyFooter}
+              >
+                <img src={moviesImg} alt="" />
+                <p>Фильмы</p>
+              </button>
+            </li>
+            <li>
+              <button className="footer__btn ">
+                <img src={seriesImg} alt="" />
+                <p>Сериалы</p>
+              </button>
+            </li>
+            <li>
+              <button className="footer__btn" onClick={showSearchByFooter}>
+                <img src={searchFooterImg} alt="" />
+                <p>Поиск</p>
+              </button>
+            </li>
+            <li>
+              <button className="footer__btn">
+                <img src={favoritesImg} alt="" />
+                <p>Избранное</p>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </footer>
     </div>
   );
 }

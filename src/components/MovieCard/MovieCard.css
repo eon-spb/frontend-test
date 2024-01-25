@@ -1,0 +1,28 @@
+.movie__card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 210px;
+  cursor: pointer;
+}
+
+.movie__card img {
+  height: 308px;
+}
+
+.movie__info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.movie__info h2 {
+  font-size: 16px;
+  line-height: 22.4px;
+}
+
+.movie__info h3 {
+  font-size: 14px;
+  line-height: 19.6px;
+  color: #fbbc09;
+}
