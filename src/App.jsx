@@ -7,6 +7,7 @@ import logoImg from "./assets/logo.png";
 import searchImg from "./assets/search.png";
 import markImg from "./assets/mark.png";
 import avatarImg from "./assets/avatar.jpg";
+import closeImg from "./assets/close.png";
 import { MovieCard } from "./components/MovieCard";
 import { SelectedMovie } from "./components/SelectedMovie";
 
@@ -75,6 +76,7 @@ export function App() {
             <img src={menuImg} alt="burger icon" />
             <img src={logoImg} alt="logo movies eoh" />
           </div>
+
           <ul>
             <li>Главная</li>
             <li className="active">Фильмы</li>
@@ -99,9 +101,14 @@ export function App() {
                 }
                 onClick={clearSearchInput}
               >
-                очистить
+                <img
+                  src={closeImg}
+                  alt="close cross"
+                  className="search__close__btn"
+                />
               </button>
             </label>
+
             <button
               className={
                 SearchBtnStatus
@@ -110,10 +117,13 @@ export function App() {
               }
               onClick={clearSearchInput}
             >
-              очистить
+              Очистить
             </button>
-            <img className="mark" src={markImg} alt="book mark" />
-            <img className="avatar" src={avatarImg} alt="avatar user" />
+
+            <div className="mark__avatar__imgs">
+              <img className="mark" src={markImg} alt="book mark" />
+              <img className="avatar" src={avatarImg} alt="avatar user" />
+            </div>
           </div>
         </nav>
       </header>
@@ -130,17 +140,22 @@ export function App() {
 
         <div className="movies__list">
           {movies ? (
-            movies.map((movie) => (
-              <MovieCard
-                key={movie.imdbID}
-                movie={movie}
-                getCurrentMovie={getCurrentMovie}
-                setShowDetails={setShowDetails}
-              />
-            ))
+            movies
+              .sort((a, b) => b.Year - a.Year)
+              .map((movie) => (
+                <MovieCard
+                  key={movie.imdbID}
+                  movie={movie}
+                  getCurrentMovie={getCurrentMovie}
+                  setShowDetails={setShowDetails}
+                />
+              ))
           ) : (
-            <div className="loading">
-              <p>No results</p>
+            <div className="noresult__wrapper">
+              <div>Фильмы не найдены</div>
+              <div className="noresult__message">
+                вводите название на английском
+              </div>
             </div>
           )}
         </div>

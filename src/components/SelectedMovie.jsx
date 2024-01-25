@@ -83,7 +83,7 @@ export function SelectedMovie({
             </div>
           </>
         ) : (
-          <div className="loading">Хуй тебе, подожди...</div>
+          <div className="loading">Идёт загрузка...</div>
         )}
       </div>
     </div>

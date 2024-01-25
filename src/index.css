@@ -50,13 +50,23 @@ header nav ul li.active {
 }
 
 header nav .search__mark_avatar {
+  max-width: 555px;
+  width: 555px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.mark__avatar__imgs {
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 24px;
 }
 
 header nav .search {
-  width: 427px;
+  width: 445px;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -74,22 +84,26 @@ header nav .search__input {
   background-color: transparent;
 }
 
-/* header nav .search__input:focus {
-  width: 100%;
-} */
+.search__close__btn {
+  width: 16px;
+  height: 16px;
+}
 
 .search__btn {
-  /* display: block; */
   z-index: 10;
   display: none;
+  justify-content: center;
+  align-items: center;
   border: none;
   background-color: transparent;
-  color: #737373;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 19.6px;
   cursor: pointer;
 }
 
 .show__search__btn {
-  display: block;
+  display: flex;
 }
 
 header nav .mark {
@@ -128,7 +142,19 @@ main .movies__list {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+}
+
+.noresult__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 82px;
+  color: #ffffff;
+}
+
+.noresult__message {
+  font-size: 62px;
+  color: #737373;
 }
 
 main .movie__card {
@@ -282,6 +308,7 @@ span {
 
 .loading {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 82px;
