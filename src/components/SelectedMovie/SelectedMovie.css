@@ -49,6 +49,12 @@ span {
   gap: 16px;
 }
 
+.selected__movie__info h1 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 44.8px;
+  letter-spacing: 1px;
+}
 .info__header {
   display: flex;
   align-items: center;
@@ -147,12 +153,6 @@ span {
   .movie__poster {
     width: 300px;
     height: 500px;
-  }
-
-  .selected__movie__info h1 {
-    font-size: 32px;
-    line-height: 44.8px;
-    letter-spacing: 1px;
   }
 
   .info__header {
