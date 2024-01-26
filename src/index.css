@@ -14,6 +14,7 @@ a {
 }
 
 .container {
+  position: relative;
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -50,12 +51,12 @@ header nav ul li.active {
 }
 
 .search__mark_avatar {
-  max-width: 555px;
-  width: 555px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
+  width: 555px;
+  max-width: 555px;
 }
 
 .mark__avatar__imgs {
@@ -66,11 +67,11 @@ header nav ul li.active {
 }
 
 .search {
-  width: 445px;
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 4px;
+  width: 445px;
   padding: 7px 10px;
   background-color: #161615;
   border-radius: 4px;
@@ -93,11 +94,11 @@ header nav ul li.active {
   display: none;
   justify-content: center;
   align-items: center;
-  border: none;
-  background-color: transparent;
-  color: #ffffff;
   font-size: 14px;
   line-height: 19.6px;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 }
 
@@ -121,8 +122,11 @@ header nav ul li.active {
   cursor: pointer;
 }
 
+.dropdown {
+  display: none;
+}
+
 main {
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -139,8 +143,8 @@ main h2 {
 
 .movies__list {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .noresult__wrapper {
@@ -160,41 +164,35 @@ footer {
   display: none;
 }
 
-@media (max-width: 744px) {
+@media (max-width: 1055px) {
+  header nav ul {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
   .container {
     width: 100%;
-    border: 10px solid green;
     margin: 0 auto;
   }
 
   header nav {
-    padding: 16px 16px;
+    padding: 20px;
   }
 
   .logo {
-    width: 100%;
     justify-content: space-between;
+    width: 100%;
   }
 
   .hide__logo {
     display: none;
   }
 
-  header nav ul {
-    display: none;
-  }
-
   .search__mark_avatar {
-    max-width: 100%;
-    width: 100%;
     justify-content: end;
-  }
-
-  .mark__avatar__imgs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .hide__imgs {
@@ -202,16 +200,13 @@ footer {
   }
 
   .search {
-    width: 100%;
     display: none;
     justify-content: end;
+    width: 100%;
   }
 
   .show__search {
     display: flex;
-  }
-
-  .search__input {
   }
 
   .search__close__btn {
@@ -219,27 +214,16 @@ footer {
     height: 16px;
   }
 
-  .search__btn {
-  }
-
   .show__search__btn {
     display: flex;
-  }
-
-  .mark {
-  }
-
-  .avatar {
   }
 
   main {
     padding: 24px 16px;
   }
 
-  main h2 {
-  }
-
   .movies__list {
+    justify-content: space-evenly;
   }
 
   .noresult__wrapper {
@@ -255,8 +239,8 @@ footer {
   }
 
   footer nav {
-    background-color: #080808;
     padding: 14px 0;
+    background-color: #080808;
   }
 
   footer nav ul {
@@ -271,11 +255,11 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 2px;
-    background-color: transparent;
-    border: none;
     padding: 0;
     color: #ffffff;
+    background-color: transparent;
     opacity: 0.5;
+    border: none;
     cursor: pointer;
   }
 
@@ -287,5 +271,97 @@ footer {
   footer .active {
     color: #e6e6e6;
     opacity: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  header nav {
+    padding: 16px 12px;
+  }
+
+  .logo {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    margin-right: 70px;
+  }
+
+  .hide__logo {
+    display: none;
+  }
+
+  header nav ul {
+    display: none;
+  }
+
+  .search__mark_avatar {
+    justify-content: end;
+    width: 100%;
+  }
+
+  .mark__avatar__imgs {
+    gap: 0;
+  }
+
+  .hide__imgs {
+    display: none;
+  }
+
+  .search {
+    display: none;
+    justify-content: end;
+    width: 100%;
+  }
+
+  .show__search {
+    display: flex;
+  }
+
+  .search__close__btn {
+    width: 16px;
+    height: 16px;
+  }
+
+  .show__search__btn {
+    display: flex;
+  }
+
+  .mark {
+    display: none;
+  }
+
+  .dropdown {
+    display: block;
+  }
+
+  main {
+    padding: 24px 16px;
+  }
+
+  main h2 {
+    font-size: 16px;
+    line-height: 22.4px;
+  }
+
+  .movies__list {
+    gap: 16px;
+  }
+
+  .noresult__wrapper {
+    font-size: 62px;
+  }
+
+  .noresult__message {
+    font-size: 42px;
+  }
+
+  footer {
+    display: block;
+  }
+
+  footer nav {
+    padding: 6px 0;
   }
 }

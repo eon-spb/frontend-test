@@ -1,29 +1,18 @@
 import { useRef } from "react";
+import "./SelectedMovie.css";
 import starImg from "../../assets/star.png";
 import elsellipseImg from "../../assets/ellipse.png";
 import playImg from "../../assets/play.png";
 import markImg from "../../assets/popup-mark.png";
 import shareImg from "../../assets/share.png";
 import closeImg from "../../assets/close.png";
-import "./SelectedMovie.css";
 
 export function SelectedMovie({
   selectedMovie,
   setSelectedMovie,
   setShowDetails,
 }) {
-  // ?? как деструктурировать если undefined
-  // const { Title, Year, Plot, Genre, imdbRating, Poster, Rated } = selectedMovie;
-
   const ref = useRef();
-
-  const closePopupOutContent = (e) => {
-    if (!ref.current.contains(e.target)) {
-      setSelectedMovie();
-      setShowDetails(false);
-      document.body.classList.remove("fixed");
-    }
-  };
 
   const closePopup = () => {
     setSelectedMovie();
@@ -31,8 +20,14 @@ export function SelectedMovie({
     document.body.classList.remove("fixed");
   };
 
+  const closePopupOutContent = (e) => {
+    if (!ref.current.contains(e.target)) {
+      closePopup();
+    }
+  };
+
   return (
-    <div className="popup" onClick={(e) => closePopupOutContent(e)}>
+    <div className="popup" onClick={closePopupOutContent}>
       <div className="popup__content" ref={ref}>
         {selectedMovie ? (
           <>
@@ -43,6 +38,7 @@ export function SelectedMovie({
               onClick={closePopup}
             />
             <img
+              className="movie__poster"
               src={
                 selectedMovie.Poster !== "N/A"
                   ? selectedMovie.Poster
@@ -50,6 +46,7 @@ export function SelectedMovie({
               }
               alt="movie poster"
             />
+
             <div className="selected__movie__info">
               <h1>{selectedMovie.Title}</h1>
               <div className="info__header">
@@ -60,6 +57,7 @@ export function SelectedMovie({
                 <img src={markImg} alt="" />
                 <img src={shareImg} alt="" />
               </div>
+
               <div className="rating__year">
                 <span>
                   <img src={starImg} alt="star" />
@@ -68,6 +66,7 @@ export function SelectedMovie({
                 <span>|</span>
                 <span>{selectedMovie.Year}</span>
               </div>
+
               <div className="rated">{selectedMovie.Rated}</div>
               <div className="genres">
                 {selectedMovie.Genre.toString()

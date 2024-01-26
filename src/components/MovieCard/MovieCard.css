@@ -26,3 +26,28 @@
   line-height: 19.6px;
   color: #fbbc09;
 }
+
+@media (max-width: 800px) {
+  .movie__card {
+    width: 224px;
+  }
+
+  .movie__card img {
+    height: 324px;
+  }
+}
+
+@media (max-width: 500px) {
+  .movie__card {
+    width: 170px;
+  }
+
+  .movie__card img {
+    height: 256px;
+  }
+
+  .movie__info h2 {
+    font-size: 14px;
+    line-height: 19.6px;
+  }
+}

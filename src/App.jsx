@@ -1,26 +1,19 @@
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { SelectedMovie } from "./components/SelectedMovie/SelectedMovie";
+import { MovieCard } from "./components/MovieCard/MovieCard";
 import menuImg from "./assets/menu.png";
 import logoImg from "./assets/logo.png";
 import searchImg from "./assets/search.png";
 import markImg from "./assets/mark.png";
 import avatarImg from "./assets/avatar.jpg";
+import dropdownImg from "./assets/dropdown.png";
 import homeImg from "./assets/home.png";
 import moviesImg from "./assets/movies.png";
 import seriesImg from "./assets/series.png";
 import searchFooterImg from "./assets/search-footer.png";
 import favoritesImg from "./assets/favorites.png";
 import closeImg from "./assets/close.png";
-import { SelectedMovie } from "./components/SelectedMovie/SelectedMovie";
-import { MovieCard } from "./components/MovieCard/MovieCard";
-
-// ?? get search title
-// ** `http://www.omdbapi.com/?apikey=${API_KEY}=${title}`
-
-// ?? get search id
-// ** `http://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`
 
 const API_KEY = "c360273d";
 
@@ -39,15 +32,14 @@ export function App() {
     setFooterSearch(false);
   };
 
-  const clearSearchInput = () => {
-    console.log("@clearSearch");
-    setSearch("");
-    setSearchBtnStatus(false);
+  const showSearchByFooter = () => {
+    setFooterSearch(true);
     searchRef.current.focus();
   };
 
-  const showSearchByFooter = () => {
-    setFooterSearch(true);
+  const clearSearchInput = () => {
+    setSearch("");
+    setSearchBtnStatus(false);
     searchRef.current.focus();
   };
 
@@ -146,6 +138,11 @@ export function App() {
             >
               <img className="mark" src={markImg} alt="book mark" />
               <img className="avatar" src={avatarImg} alt="avatar user" />
+              <img
+                className="dropdown"
+                src={dropdownImg}
+                alt="drop down arrow"
+              />
             </div>
           </div>
         </nav>
@@ -189,7 +186,7 @@ export function App() {
           <ul>
             <li>
               <button className="footer__btn">
-                <img src={homeImg} alt="" />
+                <img src={homeImg} alt="home icon" />
                 <p>Главная</p>
               </button>
             </li>
@@ -198,25 +195,25 @@ export function App() {
                 className="footer__btn active"
                 onClick={showMoviesListbyFooter}
               >
-                <img src={moviesImg} alt="" />
+                <img src={moviesImg} alt="movies icon" />
                 <p>Фильмы</p>
               </button>
             </li>
             <li>
               <button className="footer__btn ">
-                <img src={seriesImg} alt="" />
+                <img src={seriesImg} alt="awesome icon" />
                 <p>Сериалы</p>
               </button>
             </li>
             <li>
               <button className="footer__btn" onClick={showSearchByFooter}>
-                <img src={searchFooterImg} alt="" />
+                <img src={searchFooterImg} alt="search lens icon" />
                 <p>Поиск</p>
               </button>
             </li>
             <li>
               <button className="footer__btn">
-                <img src={favoritesImg} alt="" />
+                <img src={favoritesImg} alt="mark icon" />
                 <p>Избранное</p>
               </button>
             </li>
