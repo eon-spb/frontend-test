@@ -1,0 +1,148 @@
+.search__mark_avatar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  width: 555px;
+  max-width: 555px;
+}
+
+.mark__avatar__imgs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.search {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 4px;
+  width: 445px;
+  padding: 7px 10px;
+  background-color: #161615;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search__input {
+  width: 100%;
+  border: none;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.search__close__btn {
+  width: 16px;
+  height: 16px;
+}
+
+.search__btn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 19.6px;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.show__search__btn {
+  display: flex;
+}
+
+.mark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .search__mark_avatar {
+    justify-content: end;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hide__imgs {
+    display: none;
+  }
+
+  .search {
+    display: none;
+    justify-content: end;
+    width: 100%;
+  }
+
+  .show__search {
+    display: flex;
+  }
+
+  .search__close__btn {
+    width: 16px;
+    height: 16px;
+  }
+
+  .show__search__btn {
+    display: flex;
+  }
+}
+
+@media (max-width: 500px) {
+  .search__mark_avatar {
+    justify-content: end;
+    width: 100%;
+  }
+
+  .mark__avatar__imgs {
+    gap: 0;
+  }
+
+  .hide__imgs {
+    display: none;
+  }
+
+  .search {
+    display: none;
+    justify-content: end;
+    width: 100%;
+  }
+
+  .show__search {
+    display: flex;
+  }
+
+  .search__close__btn {
+    width: 16px;
+    height: 16px;
+  }
+
+  .show__search__btn {
+    display: flex;
+  }
+
+  .mark {
+    display: none;
+  }
+
+  .dropdown {
+    display: block;
+  }
+}

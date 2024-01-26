@@ -1,11 +1,11 @@
 import { useRef } from "react";
-import "./SelectedMovie.css";
-import starImg from "../../assets/star.png";
 import elsellipseImg from "../../assets/ellipse.png";
-import playImg from "../../assets/play.png";
-import markImg from "../../assets/popup-mark.png";
 import shareImg from "../../assets/share.png";
 import closeImg from "../../assets/close.png";
+import starImg from "../../assets/star.png";
+import playImg from "../../assets/play.png";
+import markImg from "../../assets/popup-mark.png";
+import "./SelectedMovie.css";
 
 export function SelectedMovie({
   selectedMovie,

@@ -1,47 +1,19 @@
-import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { SelectedMovie } from "./components/SelectedMovie/SelectedMovie";
-import { MovieCard } from "./components/MovieCard/MovieCard";
+import { useState, useRef } from "react";
+import { Search } from "./components/Search/Search";
+import { Main } from "./components/Main/Main";
+import { Footer } from "./components/Footer/Footer";
 import menuImg from "./assets/menu.png";
 import logoImg from "./assets/logo.png";
-import searchImg from "./assets/search.png";
-import markImg from "./assets/mark.png";
-import avatarImg from "./assets/avatar.jpg";
-import dropdownImg from "./assets/dropdown.png";
-import homeImg from "./assets/home.png";
-import moviesImg from "./assets/movies.png";
-import seriesImg from "./assets/series.png";
-import searchFooterImg from "./assets/search-footer.png";
-import favoritesImg from "./assets/favorites.png";
-import closeImg from "./assets/close.png";
 
-const API_KEY = "c360273d";
+export const API_KEY = "c360273d";
 
 export function App() {
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState();
-  const [search, setSearch] = useState("spider man");
-  const [timeoutId, setTimeoutId] = useState();
-  const [showDetails, setShowDetails] = useState(false);
   const [SearchBtnStatus, setSearchBtnStatus] = useState(false);
   const [footerSearch, setFooterSearch] = useState(false);
 
   const searchRef = useRef();
-
-  const showMoviesListbyFooter = () => {
-    setFooterSearch(false);
-  };
-
-  const showSearchByFooter = () => {
-    setFooterSearch(true);
-    searchRef.current.focus();
-  };
-
-  const clearSearchInput = () => {
-    setSearch("");
-    setSearchBtnStatus(false);
-    searchRef.current.focus();
-  };
 
   const getSearchedMovies = async (title) => {
     const response = await axios.get(
@@ -54,28 +26,6 @@ export function App() {
       setSearchBtnStatus(false);
     }
   };
-
-  const searchDebounce = (e) => {
-    clearTimeout(timeoutId);
-    setSearch(e.target.value);
-    const timeout = setTimeout(
-      () => getSearchedMovies(e.target.value.trim()),
-      800
-    );
-    setTimeoutId(timeout);
-  };
-
-  const getCurrentMovie = async (id) => {
-    const response = await axios.get(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`
-    );
-    setSelectedMovie(response.data);
-    document.body.classList.add("fixed");
-  };
-
-  useEffect(() => {
-    getSearchedMovies(search);
-  }, []);
 
   return (
     <div className="container">
@@ -92,134 +42,19 @@ export function App() {
             <li>Сериалы</li>
           </ul>
 
-          <div className="search__mark_avatar">
-            <label className={footerSearch ? "search show__search" : "search"}>
-              <img src={searchImg} alt="search image" />
-              <input
-                className="search__input"
-                placeholder="Поиск по сайту"
-                value={search}
-                onChange={searchDebounce}
-                ref={searchRef}
-              />
-              <button
-                className={
-                  SearchBtnStatus
-                    ? "search__btn show__search__btn"
-                    : "search__btn"
-                }
-                onClick={clearSearchInput}
-              >
-                <img
-                  src={closeImg}
-                  alt="close cross"
-                  className="search__close__btn"
-                />
-              </button>
-            </label>
-
-            <button
-              className={
-                SearchBtnStatus && footerSearch
-                  ? "search__btn show__search__btn"
-                  : "search__btn"
-              }
-              onClick={clearSearchInput}
-            >
-              Очистить
-            </button>
-
-            <div
-              className={
-                footerSearch
-                  ? "mark__avatar__imgs hide__imgs"
-                  : "mark__avatar__imgs"
-              }
-            >
-              <img className="mark" src={markImg} alt="book mark" />
-              <img className="avatar" src={avatarImg} alt="avatar user" />
-              <img
-                className="dropdown"
-                src={dropdownImg}
-                alt="drop down arrow"
-              />
-            </div>
-          </div>
+          <Search
+            footerSearch={footerSearch}
+            getSearchedMovies={getSearchedMovies}
+            searchRef={searchRef}
+            SearchBtnStatus={SearchBtnStatus}
+            setSearchBtnStatus={setSearchBtnStatus}
+          />
         </nav>
       </header>
 
-      <main>
-        <h2>Результаты поиска: </h2>
-        {showDetails && (
-          <SelectedMovie
-            selectedMovie={selectedMovie}
-            setSelectedMovie={setSelectedMovie}
-            setShowDetails={setShowDetails}
-          />
-        )}
+      <Main movies={movies} />
 
-        <div className="movies__list">
-          {movies ? (
-            movies
-              .sort((a, b) => b.Year - a.Year)
-              .map((movie) => (
-                <MovieCard
-                  key={movie.imdbID}
-                  movie={movie}
-                  getCurrentMovie={getCurrentMovie}
-                  setShowDetails={setShowDetails}
-                />
-              ))
-          ) : (
-            <div className="noresult__wrapper">
-              <div>Фильмы не найдены</div>
-              <div className="noresult__message">
-                вводите название на английском
-              </div>
-            </div>
-          )}
-        </div>
-      </main>
-
-      <footer>
-        <nav>
-          <ul>
-            <li>
-              <button className="footer__btn">
-                <img src={homeImg} alt="home icon" />
-                <p>Главная</p>
-              </button>
-            </li>
-            <li>
-              <button
-                className="footer__btn active"
-                onClick={showMoviesListbyFooter}
-              >
-                <img src={moviesImg} alt="movies icon" />
-                <p>Фильмы</p>
-              </button>
-            </li>
-            <li>
-              <button className="footer__btn ">
-                <img src={seriesImg} alt="awesome icon" />
-                <p>Сериалы</p>
-              </button>
-            </li>
-            <li>
-              <button className="footer__btn" onClick={showSearchByFooter}>
-                <img src={searchFooterImg} alt="search lens icon" />
-                <p>Поиск</p>
-              </button>
-            </li>
-            <li>
-              <button className="footer__btn">
-                <img src={favoritesImg} alt="mark icon" />
-                <p>Избранное</p>
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </footer>
+      <Footer setFooterSearch={setFooterSearch} searchRef={searchRef} />
     </div>
   );
 }

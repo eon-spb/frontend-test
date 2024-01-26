@@ -133,7 +133,7 @@ span {
   color: #ffffff;
 }
 
-@media (max-width: 744px) {
+@media (max-width: 800px) {
   .popup {
     align-items: baseline;
     padding: 0;
@@ -175,7 +175,7 @@ span {
   }
 }
 
-@media (max-width: 428px) {
+@media (max-width: 670px) {
   .popup__content {
     flex-direction: column;
     align-items: center;
