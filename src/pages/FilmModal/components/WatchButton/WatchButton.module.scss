@@ -1,0 +1,51 @@
+@import 'styles/variables.scss';
+
+.watchBtn {
+  background-color: $white;
+  padding: 12px 62px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease-in-out;
+
+  @include tablet {
+    width: 568px;
+    display: flex;
+    padding: 12px 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include mobile {
+    width: 100%;
+    display: flex;
+    padding: 12px 0;
+    justify-content: center;
+    align-items: center;
+  }
+  &__icon_svg {
+    margin-right: 8px;
+  }
+  &__icon_path {
+    transition: fill 0.2 ease-in-out;
+    fill: black;
+  }
+
+  &:hover &__icon_path {
+    fill: $white;
+  }
+
+  &:hover {
+    background-color: $red;
+  }
+
+  &:hover &__text {
+    color: $white;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+  }
+}

@@ -1,0 +1,23 @@
+@import 'styles/variables.scss';
+
+.share {
+  min-width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 5rem;
+  background-color: transparent;
+  border: 1px solid $grey;
+  transition: all 0.2s easy-in;
+
+  &:hover {
+    background-color: $white;
+    border-color: $white;
+  }
+
+  &:hover .svg {
+    fill: $black_light;
+  }
+}
+
+.svg {
+  fill: $grey_light;
+}

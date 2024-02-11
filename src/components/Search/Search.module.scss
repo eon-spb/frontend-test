@@ -1,0 +1,110 @@
+@import 'styles/variables.scss';
+
+.search {
+  width: 100%;
+  height: 32px;
+  background-color: $black_light;
+  border-radius: 4px;
+  color: $grey_light;
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-family: inherit;
+  outline: none;
+  padding: 0 10px;
+  padding-left: 3.4rem;
+  position: relative;
+
+  &__wrapper:focus-within &__placeholder {
+    display: none;
+  }
+
+  &:valid ~ &__placeholder {
+    display: none;
+  }
+
+  &:focus + &__preIcon {
+    display: block;
+  }
+
+  &:valid ~ &__preIcon {
+    display: block;
+  }
+
+  &__clear {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+    background-image: url('../../../public/icons/cancel.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: $grey;
+    border-radius: 50px;
+    transition: all 0.2s easy-in;
+    -webkit-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+
+  &:valid ~ .search__clear {
+    display: block;
+  }
+
+  &__wrapper {
+    width: 100%;
+    border-radius: 4px;
+    position: relative;
+
+    @include desktop {
+      width: 42.7rem;
+    }
+  }
+
+  &__preIcon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    display: none;
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    order: -1;
+  }
+
+  &__placeholder {
+    position: absolute;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 200;
+    color: $grey;
+  }
+}
+
+.clearBtn {
+  margin-left: 1.6rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+}

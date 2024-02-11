@@ -1,0 +1,155 @@
+@import 'styles/variables.scss';
+
+.header {
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $black;
+  padding: 1.6rem 5.2rem 1.6rem 4rem;
+  color: $white;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  gap: 2.4rem;
+
+  @include tablet {
+    padding: 1.9rem 2.8rem 1.9rem 2rem;
+  }
+  @include mobile {
+    padding: 1.1rem 1.6rem;
+  }
+
+  &__small {
+    @include tablet {
+      padding: 1.65rem 2.8rem 1.65rem 2rem;
+    }
+    @include mobile {
+      padding: 0.75rem 1.6rem 0.9rem 1.6rem;
+    }
+  }
+
+  &__left {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    gap: 2.4rem;
+  }
+
+  &__right {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    gap: 2.4rem;
+  }
+}
+
+.bookmarkBtn {
+  background-color: transparent;
+  display: none;
+  &__path {
+    fill: $grey_light;
+  }
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.profile {
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  align-items: center;
+  &__img {
+    @include desktop {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+  &__menuBtn {
+    background-color: transparent;
+    @include mobile {
+      margin-right: 9.2rem;
+    }
+  }
+}
+
+.logo {
+  width: 12.3rem;
+  @include mobile {
+    width: 9rem;
+  }
+}
+
+.burger {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  flex-direction: column;
+  gap: 3px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &__line {
+    height: 0.2rem;
+    width: 1.8rem;
+    background-color: $white;
+  }
+}
+
+.navlist {
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  gap: 4.2rem;
+  font-size: 1.4rem;
+  color: $grey;
+
+  &__item {
+    cursor: pointer;
+  }
+
+  &__active {
+    color: $white;
+  }
+}
+
+.container {
+  padding: 2.75px 0;
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  @include mobile {
+    padding-right: 6.8rem;
+  }
+}
+
+.test {
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    @include desktop {
+      justify-content: space-between;
+    }
+  }
+}
+
+.filters {
+  display: none;
+  @include desktop {
+    display: block;
+  }
+}
