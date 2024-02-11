@@ -1,0 +1,174 @@
+.header {
+    background-color: #090808;
+    height: 64px;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; 
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1360px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .logo h1 {
+    margin-right: 20px;
+  }
+  
+  .list {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .list a {
+    color: #5c5c5b;
+    text-decoration: none;
+    padding: 0 40px;
+  }
+  
+  .list a.active {
+    color: white;
+  }
+  
+  .search_movies {
+    width: 100%;
+    max-width: 427px;
+    
+  }
+  
+  .search_button {
+    position: absolute;
+    margin-left: -25px;
+    margin-top: 8px;
+    background: none;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+
+  .search_movies img{
+    width: 15px;
+  }
+
+
+  .clearSearch {
+    background: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+    margin-left: 10px;
+  }
+
+
+  
+  .search_movies .search_button:hover::before {
+    content: url('../image/fixed/CancelHover.png');
+    position: absolute;
+    top: -2px;
+    left: -3px;
+    width: 15px;
+    height: 15px;
+    z-index: 1; 
+    transform: scale(0.6);
+  }
+  
+  
+  .search_movies input:focus + button {
+    opacity: 1;
+  }
+  
+  .header input {
+    position: relative;
+    width: 100%;
+    max-width: 427px;
+    height: 32px;
+    box-sizing: border-box; 
+    border-radius: 4px;
+    background-color: #161615;
+    padding: 0 25px; 
+    color: #E6E6E6;
+    font-size: 14px;
+    background-image: url("../image/Stroke.png"); 
+    background-size: 13px 13px; 
+    background-position: 10px center;
+    background-repeat: no-repeat;
+  }
+  
+  .header input:focus::placeholder {
+    color: transparent;
+  }
+  
+  .header input:not(:placeholder-shown) {
+    background-position: 7px calc(50% - 0px);
+    padding: 0 25px;
+  }
+  
+  .header input::placeholder {
+    color: #5c5c5b;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .profile li {
+    padding-left: 15px;
+  }
+  
+  .profile li.other {
+    padding: 0;
+  }
+  
+
+
+
+  
+  
+
+  @media screen and (max-width: 960px) {
+
+    .list a {
+      padding: 0 10px;
+    }
+  }
+
+
+
+
+  @media screen and (max-width: 744px) {
+    .list {
+      display: none;
+    }
+  
+    .profile_bookmark {
+      display: none;
+    }
+  
+    .clearSearch {
+      display: block;
+    }
+  
+    .container {
+      justify-content: flex-start;
+    }
+
+    
+
+  }

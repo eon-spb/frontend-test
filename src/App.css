@@ -1,0 +1,139 @@
+body {
+  background-color: #161615;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body, div, h1, h2, h3,h4,h5,h6,p,ul,ol,li,dl,dt,dd,textarea,pre,iframe,hr,button,input,select,th,td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: 'Montserrat', sans-serif;
+  vertical-align: baseline;
+}
+
+ol,ul, li {
+  list-style: none;
+}
+
+.movie_list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1360px; 
+  margin: 0 auto; 
+  justify-content: flex-start;
+  padding: 65px 0px 0px 0px;
+  
+}
+
+.movie {
+  flex-basis: calc(100% / 6 - 16px);
+  padding: 0px 16px 0px 0px; 
+  margin-bottom: 60px;
+  color: #E6E6E6;
+  position: relative; 
+  cursor: pointer;
+}
+
+.movie img {
+  object-fit: cover;
+  width: 210px; 
+  max-height: 308px;
+}
+
+.movie_text {
+  font-size: 18px;
+  width: 210px; 
+  margin-top: 5px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.movie_rating {
+  font-size: 14px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.movie_rating img {
+  margin-right: 3px;
+  max-width: 16px;
+
+}
+
+.movie_list_second {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1360px; 
+  margin: 0 auto; 
+  justify-content: flex-start;
+}
+
+.movie_title {
+  color: #E6E6E6;
+  font-size: 20px;
+  position: absolute;
+  margin-top: -45px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.movie_suptitle {
+  color: #E6E6E6;
+  font-size: 20px;
+  position: absolute;
+  margin-top: -45px;
+  font-weight: 500;
+  letter-spacing: 1px;
+
+}
+
+
+@media screen and (max-width: 1360px) {
+  .movie {
+    padding: 0px 6px 0px 10px;
+  }
+  .movie_title,
+  .movie_suptitle {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .movie {
+    padding: 0 5px;
+  }
+
+    .search input {
+      display: none;
+    }
+
+  .movie img {
+    width: 190px;
+  }
+
+}
+
+@media screen and (max-width: 440px) {
+
+  .movie {
+    padding: 0 0px 0px 3px;
+  }
+
+  .movie_list {
+    display: flex;
+    justify-content: center;
+  }
+
+  .movie_list_second {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+  }
+
+
+}

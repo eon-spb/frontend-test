@@ -1,0 +1,293 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    position: fixed;
+    background-color: #161615;
+    top: 52%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 90%; 
+    max-width: 960px; 
+    max-height: 100%;
+    z-index: 100;
+    
+}
+
+.modal img {
+    opacity: 0.4;
+    width: 100%;
+    height: 580px; 
+    max-height: 70vh; 
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: 0 0;
+    width: 100%;
+    
+}
+
+.info {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -170px;
+    color: white;
+    font-weight: 500;
+    padding: 0 3%; 
+    letter-spacing: 1px;
+    font-size: 3vw; 
+}
+
+.modal button {
+    background: none;
+    position: absolute;
+    right: 5%; 
+    top: 2%;
+    z-index: 5;
+}
+
+.modal button img {
+    height: auto; 
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.modal button:hover::before {
+    content: url('../image/fixed/CancelHover.png'); 
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; 
+    transform: scale(1); 
+    cursor: pointer;
+  }
+
+
+.modal_background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+
+.watch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #090808;
+  width: 220px;
+  height: 44px;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 19.6px;
+  letter-spacing: normal;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative; 
+}
+
+.watch:hover {
+  background-color: red;
+  color: white;
+}
+
+.watch:hover::before { 
+  content: url('../image/playwhite.png');
+  position: absolute;
+  top: 16px;
+  left: 59px;
+  transform: translate(-50%, -50%);
+  z-index: 1; 
+  transform: scale(1.2); 
+}
+
+  
+  .watch img {
+    width: 10.5px;
+    height: 15px;
+    object-fit: cover;
+    padding: 0 10px;
+    opacity: 1;
+  }
+  
+  .video_container {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    margin-top: 25px;
+  }
+
+  .film_name {
+    margin-bottom: 10px;
+    font-size: 42px;
+  }
+  
+
+.other_items {
+    display: flex;
+    margin-left: 10px;
+    
+}
+
+.other_items img {
+    width: 25px;
+    height: 25px;
+    object-fit: none;
+    margin: 0 5px;
+    border: 1px solid #737373;
+    border-radius: 100%;
+    padding: 5px;
+}
+
+
+.title {
+    display: flex;
+    flex-direction: column;
+}
+
+.suptitles {
+    display: flex;
+    margin-top: 20px;
+    margin-left: -10px;
+}
+
+.suptitles li {
+    font-size: 18px;
+}
+
+.rate {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.rate:after {
+    content: "";
+    background-color: white;
+    width: 2px;
+    height: 15px;
+    display: block;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+.rate img {
+    position: relative;
+    top: -2px;
+    opacity: 1;
+    width: 16.67px;
+    height: 15.83px;
+    margin: 0 10px;
+}
+
+
+.genreList {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.genre {
+    color: #737373;
+    font-size: 16px;
+    padding-right: 25px;
+}
+
+.genre + li {
+    list-style-type: disc;
+    padding-right: 25px;
+}
+
+.genre li::marker {
+    margin: 0 10px;
+}
+
+
+.plot {
+    max-width: 630px;
+    margin-top: 50px;
+    font-size: 16px;
+    line-height: 22.4px;
+    word-wrap: break-word;
+}
+
+
+
+@media screen and (max-width: 960px) {
+
+    .video_container {
+        margin-top: 15px;
+      }
+
+    .modal {
+        width: 100%;
+        top: 50%;
+    }
+
+    .info {
+        top: -170px;
+    }
+  }
+
+  @media screen and (max-width: 744px) {
+  .video_container {
+    width: 548px;
+    margin-top: 20px;
+  }
+
+  .watch {
+    width: 548px;
+  }
+
+  .film_name {
+    font-size: 40px;
+  }
+
+  .genre {
+    color: white;
+  }
+}
+
+
+@media screen and (max-width: 568px) {
+    .video_container {
+      width: 260px;
+      margin-top: 10px;
+    }
+
+    .title {
+      margin-top: 1%;
+    }
+  
+    .watch {
+      width: 568px;
+    }
+    
+
+    .film_name {
+        font-size: 30px;
+      }
+
+      .modal img {
+       object-fit: fill; 
+      }
+
+  }
