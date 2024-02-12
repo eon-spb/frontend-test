@@ -19,6 +19,7 @@ function Home() {
 
   useEffect(() => {
     if (query) {
+      setError('');
       fetch(
         `${process.env.REACT_APP_API_URL}/?apikey=${process.env.REACT_APP_API_KEY}&s=${query}&type=${activeFilter}`
       )
